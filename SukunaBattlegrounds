@@ -1,0 +1,120 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/ionlyusegithubformcmods/1-Line-Scripts/main/Mobile%20Friendly%20Orion')))()
+local function DefaultCom()
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":reset") then
+        local player = game.Players.LocalPlayer.Character
+if player:FindFirstChildOfClass("Humanoid") then
+    local humanoid = player:FindFirstChildOfClass("Humanoid") humanoid:ChangeState(Enum.HumanoidStateType.Dead)
+end
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":rejoin") then
+        TeleportService = game:GetService("TeleportService")
+        TeleportService:TeleportToPlaceInstance(game.PlaceId, game.JobId, game.Players.LocalPlayer)
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":serverhop") then
+        local module = loadstring(game:HttpGet"https://raw.githubusercontent.com/LeoKholYt/roblox/main/lk_serverhop.lua")()
+module:Teleport(game.PlaceId)
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":fps") then
+    local fps = 1 / game:GetService("RunService").Heartbeat:Wait()
+OrionLib:MakeNotification({
+	Name = "Budgie Hub",
+	Content = "FPS: " .. math.floor(fps),
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local Dan = [[
+Non-Admin commands:
+:cmds(or :help or :commands)      :serverhop
+:fps          :reset
+:credit(or :creator)        :console
+:silentchat
+:rejoin
+:reset
+]]
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":cmds") or lowercaseMessage:find(":commands") or lowercaseMessage:find(":help") then
+OrionLib:MakeNotification({
+	Name = "Budgie Hub",
+	Content = Dan,
+	Image = "rbxassetid://4483345998",
+	Time = 10
+})
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":silentchat") then
+        loadstring(game:HttpGet("https://raw.githubusercontent.com/ADSKerOffical/AdminCmds2/main/SilentCmds"))()
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":credit") or lowercaseMessage:find(":creator") then
+OrionLib:MakeNotification({
+	Name = "Budgie Hub",
+	Content = "By MEGACOCONUT and Hamsterovich",
+	Image = "rbxassetid://4483345998",
+	Time = 5
+})
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function onPlayerChatted(message, player)
+    local lowercaseMessage = message:lower()
+    
+    if lowercaseMessage:find(":console") then
+        game:GetService("VirtualInputManager"):SendKeyEvent(true, "F9" , false , game)
+    end
+end
+
+game.Players.LocalPlayer.Chatted:Connect(onPlayerChatted)
+
+local function mes()
+game.StarterGui:SetCore( "ChatMakeSystemMessage",  { Text = "You can use non-admin commands. Enter into chat :cmds or :help to find out the commands", Color = Color3.fromRGB( 0,120,0 ), Font = Enum.Font.Arial } )
+end
+
+mes()
+end
+
+DefaultCom()
